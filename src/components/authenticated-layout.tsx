@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import { useEffect } from "react";
 
 export function AuthenticatedLayout({ children }: { children: ReactNode }) {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
@@ -17,10 +17,6 @@ export function AuthenticatedLayout({ children }: { children: ReactNode }) {
 
   if (status === "loading") {
     return <div>Loading...</div>;
-  }
-
-  if (!session) {
-    return null; // or a loading spinner
   }
 
   return <>{children}</>;
