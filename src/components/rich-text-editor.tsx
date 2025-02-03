@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useSpring, animated } from "@react-spring/web";
 import { Bold, Italic, List, Underline } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Toggle } from "@/components/ui/toggle";
 
 export function RichTextEditor() {
@@ -45,9 +45,8 @@ export function RichTextEditor() {
 
   return (
     <animated.div style={editorAnimation}>
-      <Card className="bg-gradient-to-br from-cyan-500 to-blue-600 text-white">
+      <Card>
         <CardHeader>
-          <CardTitle className="text-3xl font-bold">Rich Text Editor</CardTitle>
           <div className="flex gap-2 mt-4">
             <Toggle
               onClick={() => applyFormat("bold")}

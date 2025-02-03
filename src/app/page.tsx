@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/card";
 import { Overview } from "@/components/overview";
 import { RecentSales } from "@/components/recent-sales";
-import { UserChart } from "@/components/user-chart";
 
 export default function DashboardPage() {
   return (
@@ -77,24 +76,6 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <RecentSales />
-          </CardContent>
-        </Card>
-      </div>
-      <div className="grid gap-4 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>User Activity</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <UserChart />
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Engagement Metrics</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <UserChart dataKey="engagement" />
           </CardContent>
         </Card>
       </div>
