@@ -1,19 +1,26 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import type { ReactNode } from "react";
+import { useEffect } from "react";
 
 export function AuthenticatedLayout({ children }: { children: ReactNode }) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/signin");
+    }
+  }, [status, router]);
 
   if (status === "loading") {
     return <div>Loading...</div>;
   }
 
-  if (status === "unauthenticated") {
-    redirect("/signin");
+  if (!session) {
+    return null; // or a loading spinner
   }
 
   return <>{children}</>;

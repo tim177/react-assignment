@@ -1,9 +1,12 @@
-import { SignIn } from "@/components/sign-in";
+"use client";
+
+import { Suspense } from "react";
+import { SignIn } from "./signIn";
 
 export default function SignInPage() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
+    <Suspense fallback={<div>Loading...</div>}>
       <SignIn />
-    </div>
+    </Suspense>
   );
 }
